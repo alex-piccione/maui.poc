@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-2025 
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install MAUI Workload
+        run: dotnet workload install maui
+
+      - name: Restore & Build
+        run: |
+          # 1. Restore the packages
+          dotnet restore
+          
+          # 2. Build using backticks (`) for multi-line commands in PowerShell
+          dotnet build -c Release --no-restore
+          #  -p:SelfContained=false `
+          #  -p:EnableWindowsTargeting=true
