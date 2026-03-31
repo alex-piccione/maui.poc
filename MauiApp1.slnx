@@ -2,7 +2,10 @@
   <Folder Name="/Solution Items/">
     <File Path=".github/workflows/deploy.yaml" />
     <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="src/ClassLibrary1/ClassLibrary1.fsproj" Id="0e3b9fc7-576b-4248-ab51-42596a64355a" />
   <Project Path="src/MauiApp1/MauiApp1.csproj" />
 </Solution>
